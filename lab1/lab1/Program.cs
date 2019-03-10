@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+
 
 namespace lab1
 {
@@ -22,6 +24,7 @@ namespace lab1
             Console.WriteLine("3. Реализовать функцию возведения в квадрат суммы двух целых чисел");
             Console.WriteLine("4. Реализовать функцию возведения в квадрат частного двух целых чисел");
             Console.WriteLine("5. Реализовать функцию возведения в квадрат произведения двух вещественных чисел");
+            Console.WriteLine("6. Реализовать функцию вычисления произведения двух целых чисел");
 
             selection = Convert.ToInt32(Console.ReadLine());
 
@@ -76,7 +79,13 @@ namespace lab1
                     Result = c * d;
                     Console.WriteLine("Result - " + Result*Result);
                     break;
-
+                case 6:
+                    Console.WriteLine("Введите два числа");
+                    a = Convert.ToInt32(Console.ReadLine());
+                    b = Convert.ToInt32(Console.ReadLine());
+                    result = a * b;
+                    Console.WriteLine("Result - " + result);
+                    break;
                 default:
                     Console.WriteLine("Ошибка! Повторите ввод!");
                     break;
