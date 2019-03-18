@@ -23,7 +23,7 @@ namespace LAB_GUI2
 
         public double Square()
         {
-            double square = Math.Sqrt(radius) * Math.Round(Math.PI, 2);
+            double square = Math.Pow(radius,2) * Math.Round(Math.PI, 2);
             return square;
         }
         public double Length()

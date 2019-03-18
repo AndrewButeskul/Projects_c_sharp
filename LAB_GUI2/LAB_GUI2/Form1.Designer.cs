@@ -85,7 +85,7 @@
             // labelRound
             // 
             this.labelRound.AutoSize = true;
-            this.labelRound.Location = new System.Drawing.Point(45, 160);
+            this.labelRound.Location = new System.Drawing.Point(83, 160);
             this.labelRound.Name = "labelRound";
             this.labelRound.Size = new System.Drawing.Size(50, 17);
             this.labelRound.TabIndex = 5;
@@ -94,7 +94,7 @@
             // labelCylinder
             // 
             this.labelCylinder.AutoSize = true;
-            this.labelCylinder.Location = new System.Drawing.Point(188, 160);
+            this.labelCylinder.Location = new System.Drawing.Point(328, 160);
             this.labelCylinder.Name = "labelCylinder";
             this.labelCylinder.Size = new System.Drawing.Size(59, 17);
             this.labelCylinder.TabIndex = 6;
@@ -104,16 +104,16 @@
             // 
             this.richTextBoxRound.Location = new System.Drawing.Point(12, 193);
             this.richTextBoxRound.Name = "richTextBoxRound";
-            this.richTextBoxRound.Size = new System.Drawing.Size(121, 130);
+            this.richTextBoxRound.Size = new System.Drawing.Size(198, 130);
             this.richTextBoxRound.TabIndex = 7;
             this.richTextBoxRound.Text = "";
             this.richTextBoxRound.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // richTextBoxCylinder
             // 
-            this.richTextBoxCylinder.Location = new System.Drawing.Point(155, 193);
+            this.richTextBoxCylinder.Location = new System.Drawing.Point(247, 193);
             this.richTextBoxCylinder.Name = "richTextBoxCylinder";
-            this.richTextBoxCylinder.Size = new System.Drawing.Size(125, 130);
+            this.richTextBoxCylinder.Size = new System.Drawing.Size(219, 130);
             this.richTextBoxCylinder.TabIndex = 8;
             this.richTextBoxCylinder.Text = "";
             // 
