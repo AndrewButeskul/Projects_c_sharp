@@ -8,7 +8,9 @@ namespace LAB_GUI2
 {
     class Cylinder : Round
     {
-        double height;
+        private double height;
+
+        public double Height { get => height; set => height = value >= 0 ? value : 0; }
 
         public Cylinder()
         {
@@ -18,9 +20,7 @@ namespace LAB_GUI2
         {
             base.Radius = radius;
             Height = height;
-        }
-
-        public double Height { get => height; set => height = value >= 0 ? value : 0; }
+        }       
 
         public double Volume()
         {
@@ -30,7 +30,8 @@ namespace LAB_GUI2
 
         new public string ToString()
         {
-            return "\nCircle radius = " + this.Radius + "\nHeight = " + this.Height + "\nVolume = " + this.Volume();
+            return "\nCircle radius = " + this.Radius + "\nHeight = " + this.Height +
+                "\nVolume = " + this.Volume();
         }
     }
 }

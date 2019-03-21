@@ -37,6 +37,17 @@
             this.labelCylinder = new System.Windows.Forms.Label();
             this.richTextBoxRound = new System.Windows.Forms.RichTextBox();
             this.richTextBoxCylinder = new System.Windows.Forms.RichTextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.RichTextBoxResult = new System.Windows.Forms.RichTextBox();
+            this.Result = new System.Windows.Forms.Label();
+            this.StartCalculating = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // calculate
@@ -85,7 +96,7 @@
             // labelRound
             // 
             this.labelRound.AutoSize = true;
-            this.labelRound.Location = new System.Drawing.Point(83, 160);
+            this.labelRound.Location = new System.Drawing.Point(83, 142);
             this.labelRound.Name = "labelRound";
             this.labelRound.Size = new System.Drawing.Size(50, 17);
             this.labelRound.TabIndex = 5;
@@ -94,7 +105,7 @@
             // labelCylinder
             // 
             this.labelCylinder.AutoSize = true;
-            this.labelCylinder.Location = new System.Drawing.Point(328, 160);
+            this.labelCylinder.Location = new System.Drawing.Point(83, 316);
             this.labelCylinder.Name = "labelCylinder";
             this.labelCylinder.Size = new System.Drawing.Size(59, 17);
             this.labelCylinder.TabIndex = 6;
@@ -102,26 +113,99 @@
             // 
             // richTextBoxRound
             // 
-            this.richTextBoxRound.Location = new System.Drawing.Point(12, 193);
+            this.richTextBoxRound.Location = new System.Drawing.Point(12, 172);
             this.richTextBoxRound.Name = "richTextBoxRound";
-            this.richTextBoxRound.Size = new System.Drawing.Size(198, 130);
+            this.richTextBoxRound.Size = new System.Drawing.Size(211, 130);
             this.richTextBoxRound.TabIndex = 7;
             this.richTextBoxRound.Text = "";
             this.richTextBoxRound.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // richTextBoxCylinder
             // 
-            this.richTextBoxCylinder.Location = new System.Drawing.Point(247, 193);
+            this.richTextBoxCylinder.Location = new System.Drawing.Point(12, 350);
             this.richTextBoxCylinder.Name = "richTextBoxCylinder";
-            this.richTextBoxCylinder.Size = new System.Drawing.Size(219, 130);
+            this.richTextBoxCylinder.Size = new System.Drawing.Size(211, 130);
             this.richTextBoxCylinder.TabIndex = 8;
             this.richTextBoxCylinder.Text = "";
+            // 
+            // RichTextBoxResult
+            // 
+            this.RichTextBoxResult.Location = new System.Drawing.Point(965, 127);
+            this.RichTextBoxResult.Name = "RichTextBoxResult";
+            this.RichTextBoxResult.Size = new System.Drawing.Size(282, 130);
+            this.RichTextBoxResult.TabIndex = 10;
+            this.RichTextBoxResult.Text = "";
+            this.RichTextBoxResult.TextChanged += new System.EventHandler(this.RichTextBoxResult_TextChanged);
+            // 
+            // Result
+            // 
+            this.Result.AutoSize = true;
+            this.Result.Location = new System.Drawing.Point(1077, 95);
+            this.Result.Name = "Result";
+            this.Result.Size = new System.Drawing.Size(48, 17);
+            this.Result.TabIndex = 14;
+            this.Result.Text = "Result";
+            // 
+            // StartCalculating
+            // 
+            this.StartCalculating.Location = new System.Drawing.Point(1025, 30);
+            this.StartCalculating.Name = "StartCalculating";
+            this.StartCalculating.Size = new System.Drawing.Size(153, 43);
+            this.StartCalculating.TabIndex = 15;
+            this.StartCalculating.Text = "Start Calculating";
+            this.StartCalculating.UseVisualStyleBackColor = true;
+            this.StartCalculating.Click += new System.EventHandler(this.StartCalculating_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataGridView1.Location = new System.Drawing.Point(243, 56);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(716, 452);
+            this.dataGridView1.TabIndex = 16;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Radius";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Heigth";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Area of ​​a circle";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Length of a circle";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Volume of a cylinder";
+            this.Column5.Name = "Column5";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 433);
+            this.ClientSize = new System.Drawing.Size(1259, 539);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.StartCalculating);
+            this.Controls.Add(this.Result);
+            this.Controls.Add(this.RichTextBoxResult);
             this.Controls.Add(this.richTextBoxCylinder);
             this.Controls.Add(this.richTextBoxRound);
             this.Controls.Add(this.labelCylinder);
@@ -132,8 +216,9 @@
             this.Controls.Add(this.Label_radius);
             this.Controls.Add(this.calculate);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Lab_2";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,6 +235,16 @@
         private System.Windows.Forms.Label labelCylinder;
         private System.Windows.Forms.RichTextBox richTextBoxRound;
         private System.Windows.Forms.RichTextBox richTextBoxCylinder;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.RichTextBox RichTextBoxResult;
+        private System.Windows.Forms.Label Result;
+        private System.Windows.Forms.Button StartCalculating;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }
 

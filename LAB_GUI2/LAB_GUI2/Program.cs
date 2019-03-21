@@ -8,8 +8,7 @@ namespace LAB_GUI2
 {
     static class Program
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
+        /// <summary>  /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
         static void Main()
