@@ -47,6 +47,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +70,6 @@
             this.Label_radius.Size = new System.Drawing.Size(52, 17);
             this.Label_radius.TabIndex = 1;
             this.Label_radius.Text = "Radius";
-            this.Label_radius.Click += new System.EventHandler(this.label1_Click);
             // 
             // label_height
             // 
@@ -118,7 +119,6 @@
             this.richTextBoxRound.Size = new System.Drawing.Size(211, 130);
             this.richTextBoxRound.TabIndex = 7;
             this.richTextBoxRound.Text = "";
-            this.richTextBoxRound.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // richTextBoxCylinder
             // 
@@ -135,7 +135,6 @@
             this.RichTextBoxResult.Size = new System.Drawing.Size(282, 130);
             this.RichTextBoxResult.TabIndex = 10;
             this.RichTextBoxResult.Text = "";
-            this.RichTextBoxResult.TextChanged += new System.EventHandler(this.RichTextBoxResult_TextChanged);
             // 
             // Result
             // 
@@ -197,6 +196,15 @@
             this.Column5.HeaderText = "Volume of a cylinder";
             this.Column5.Name = "Column5";
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "bin";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "(*bin.)|*bin.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -217,7 +225,6 @@
             this.Controls.Add(this.calculate);
             this.Name = "Form1";
             this.Text = "Lab_2";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -245,6 +252,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

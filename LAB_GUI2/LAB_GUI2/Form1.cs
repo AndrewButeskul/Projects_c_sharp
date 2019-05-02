@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace LAB_GUI2
 {
@@ -20,6 +21,18 @@ namespace LAB_GUI2
             InitializeComponent();
             round = new Round();
             cylinder = new Cylinder();
+            DialogResult result = MessageBox.Show("Do you want to import data from file?", "Cancle", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                    return;
+                // получаем выбранный файл
+                string filename = openFileDialog1.FileName;
+                // читаем файл в строку
+                string fileText = System.IO.File.ReadAllText(filename);
+                RichTextBoxResult.Text = fileText;
+                MessageBox.Show("File open");
+            }
         }
                 
         private void button1_Click(object sender, EventArgs e)
@@ -38,7 +51,7 @@ namespace LAB_GUI2
 
         private void StartCalculating_Click(object sender, EventArgs e)
         {
-            RichTextBoxResult.Text = GetResult();
+            RichTextBoxResult.Text = GetResult();           
         }
 
         public string Max_Square()
@@ -73,22 +86,27 @@ namespace LAB_GUI2
             return Max_Square() + Average_Volume();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            base.OnFormClosing(e);
 
-        }
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RichTextBoxResult_TextChanged(object sender, EventArgs e)
-        {
-
+            DialogResult result = MessageBox.Show("Do you want to save data to a file?", "Cancle",
+           MessageBoxButtons.YesNo,
+           MessageBoxIcon.Information,
+           MessageBoxDefaultButton.Button1,
+           MessageBoxOptions.DefaultDesktopOnly);
+            if (result == DialogResult.Yes)
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                    return;
+                // получаем выбранный файл
+                string filename = saveFileDialog1.FileName;
+                // сохраняем текст в файл
+                System.IO.File.WriteAllText(filename, RichTextBoxResult.Text);
+                MessageBox.Show("File save!");
+            }            
         }
     }
 }
