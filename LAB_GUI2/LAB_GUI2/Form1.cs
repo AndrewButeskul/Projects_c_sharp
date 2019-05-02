@@ -26,9 +26,7 @@ namespace LAB_GUI2
             {
                 if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                     return;
-                // получаем выбранный файл
                 string filename = openFileDialog1.FileName;
-                // читаем файл в строку
                 string fileText = System.IO.File.ReadAllText(filename);
                 RichTextBoxResult.Text = fileText;
                 MessageBox.Show("File open");
@@ -101,9 +99,7 @@ namespace LAB_GUI2
             {
                 if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                     return;
-                // получаем выбранный файл
                 string filename = saveFileDialog1.FileName;
-                // сохраняем текст в файл
                 System.IO.File.WriteAllText(filename, RichTextBoxResult.Text);
                 MessageBox.Show("File save!");
             }            
