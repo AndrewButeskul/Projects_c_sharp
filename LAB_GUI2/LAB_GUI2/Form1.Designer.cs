@@ -198,12 +198,12 @@
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.DefaultExt = "bin";
+            this.saveFileDialog1.DefaultExt = "txt";
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "(*bin.)|*bin.";
+            this.openFileDialog1.Filter = "(*txt.)|*txt.";
             // 
             // Form1
             // 

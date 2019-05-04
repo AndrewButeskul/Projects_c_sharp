@@ -15,7 +15,6 @@ namespace LAB_GUI2
     {
         Round round;
         Cylinder cylinder;
-
         public Form1()
         {
             InitializeComponent();
@@ -26,9 +25,10 @@ namespace LAB_GUI2
             {
                 if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                     return;
-                string filename = openFileDialog1.FileName;
-                string fileText = System.IO.File.ReadAllText(filename);
-                RichTextBoxResult.Text = fileText;
+                string filename = openFileDialog1.FileName;              
+                BinaryReader br = new BinaryReader(File.Open(filename, FileMode.Open));
+                RichTextBoxResult.Text += br.ReadString();
+                br.Close();
                 MessageBox.Show("File open");
             }
         }
@@ -90,17 +90,15 @@ namespace LAB_GUI2
 
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
-            DialogResult result = MessageBox.Show("Do you want to save data to a file?", "Cancle",
-           MessageBoxButtons.YesNo,
-           MessageBoxIcon.Information,
-           MessageBoxDefaultButton.Button1,
-           MessageBoxOptions.DefaultDesktopOnly);
+            DialogResult result = MessageBox.Show("Do you want to save data to a file?", "Cancle", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
-                    return;
+                    return;                
                 string filename = saveFileDialog1.FileName;
-                System.IO.File.WriteAllText(filename, RichTextBoxResult.Text);
+                BinaryWriter bw = new BinaryWriter(File.Open(filename, FileMode.OpenOrCreate));
+                bw.Write(RichTextBoxResult.Text.ToString());
+                bw.Close();
                 MessageBox.Show("File save!");
             }            
         }
